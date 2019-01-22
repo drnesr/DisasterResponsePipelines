@@ -1,6 +1,9 @@
 # import packages
 import sys
-
+# From ETL Pipeline Preparation
+import numpy as np
+import pandas as pd
+from sqlalchemy import create_engine
 
 def load_data(data_file):
     # read in file
