@@ -15,7 +15,7 @@ def load_data(messages_filepath, categories_filepath):
     # load messages dataset
     messages = pd.read_csv(messages_filepath)
     # load categories dataset
-    categories = pd.read_csv('categories.csv')
+    categories = pd.read_csv(categories_filepath)
     # return a merged dataset
     return pd.merge(messages, categories,how='left', on='id')
     # pass
@@ -52,7 +52,9 @@ def save_data(df, database_filename):
     Returns None
     '''
     # Create the engine using SQLAlchemy
-    engine = create_engine(f'sqlite:///{database_filename}.db')
+    if database_filename[-3:]!='.db':
+        database_filename = database_filename + '.db'
+    engine = create_engine(f'sqlite:///{database_filename}')
     # loading the dataframe as a table in the database
     df.to_sql('CategorizedMessages', engine, index=False)
     pass  
