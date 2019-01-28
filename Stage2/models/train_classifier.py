@@ -66,7 +66,18 @@ def build_model():
                         max_depth=3,
                         max_features=0.3,
                         min_samples_split=3)))])
-    return pipeline
+    
+    parameters = {
+    'tfidf__sublinear_tf': (True, False),
+    'clf__estimator__min_samples_split': (3, 4),
+    'clf__estimator__max_features': ('sqrt', 0.3, 0.4),
+    'clf__estimator__max_depth': (3, 5),
+    'clf__estimator__criterion': ('gini','entropy'),
+    }
+    
+    cv = GridSearchCV(pipeline, param_grid=parameters,verbose= 1,n_jobs =-1)
+    
+    return cv
 
 def evaluate_model(model, X_test, y_test, category_names):
 
