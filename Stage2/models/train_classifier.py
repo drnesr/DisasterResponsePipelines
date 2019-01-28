@@ -68,14 +68,13 @@ def build_model():
                         min_samples_split=3)))])
     
     parameters = {
-    'tfidf__sublinear_tf': (True, False),
     'clf__estimator__min_samples_split': (3, 4),
-    'clf__estimator__max_features': ('sqrt', 0.3, 0.4),
+    'clf__estimator__max_features': ('sqrt', 0.3),
     'clf__estimator__max_depth': (3, 5),
     'clf__estimator__criterion': ('gini','entropy'),
     }
     
-    cv = GridSearchCV(pipeline, param_grid=parameters,verbose= 1,n_jobs =-1)
+    cv = GridSearchCV(pipeline, param_grid=parameters,verbose= 10,n_jobs =-1)
     
     return cv
 

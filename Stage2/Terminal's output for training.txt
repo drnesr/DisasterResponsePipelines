@@ -1,0 +1,267 @@
+/opt/conda/lib/python3.6/runpy.py:125: RuntimeWarning: 'nltk.downloader' found in sys.modules after import of package 'nltk', but prior to execution of 'nltk.downloader'; this may result in unpredictable behaviour
+  warn(RuntimeWarning(msg))
+[nltk_data] Downloading package wordnet to /root/nltk_data...
+[nltk_data]   Unzipping corpora/wordnet.zip.
+[nltk_data] Downloading package punkt to /root/nltk_data...
+[nltk_data]   Unzipping tokenizers/punkt.zip.
+root@3712c9ea30e3:/home/workspace# python models/train_classifier.py data/DisasterResponse.db models/classifier.pkl
+[nltk_data] Downloading package punkt to /root/nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+[nltk_data] Downloading package wordnet to /root/nltk_data...
+[nltk_data]   Package wordnet is already up-to-date!
+[nltk_data] Downloading package stopwords to /root/nltk_data...
+[nltk_data]   Unzipping corpora/stopwords.zip.
+Loading data...
+    DATABASE: data/DisasterResponse.db
+Building model...
+Training model...
+Fitting 3 folds for each of 16 candidates, totalling 48 fits
+[CV] clf__estimator__criterion=gini, clf__estimator__max_depth=3, clf__estimator__max_features=sqrt, clf__estimator__min_samples_split=3 
+[CV]  clf__estimator__criterion=gini, clf__estimator__max_depth=3, clf__estimator__max_features=sqrt, clf__estimator__min_samples_split=3, score=0.19753969389214704, total=  33.8s
+[Parallel(n_jobs=-1)]: Done   1 out of   1 | elapsed:   47.7s remaining:    0.0s
+[CV] clf__estimator__criterion=gini, clf__estimator__max_depth=3, clf__estimator__max_features=sqrt, clf__estimator__min_samples_split=3 
+[CV]  clf__estimator__criterion=gini, clf__estimator__max_depth=3, clf__estimator__max_features=sqrt, clf__estimator__min_samples_split=3, score=0.19625232441710772, total=  31.1s
+[Parallel(n_jobs=-1)]: Done   2 out of   2 | elapsed:  1.6min remaining:    0.0s
+[CV] clf__estimator__criterion=gini, clf__estimator__max_depth=3, clf__estimator__max_features=sqrt, clf__estimator__min_samples_split=3 
+[CV]  clf__estimator__criterion=gini, clf__estimator__max_depth=3, clf__estimator__max_features=sqrt, clf__estimator__min_samples_split=3, score=0.19198855507868384, total=  30.9s
+[Parallel(n_jobs=-1)]: Done   3 out of   3 | elapsed:  2.3min remaining:    0.0s
+[CV] clf__estimator__criterion=gini, clf__estimator__max_depth=3, clf__estimator__max_features=sqrt, clf__estimator__min_samples_split=4 
+[CV]  clf__estimator__criterion=gini, clf__estimator__max_depth=3, clf__estimator__max_features=sqrt, clf__estimator__min_samples_split=4, score=0.19753969389214704, total=  30.4s
+[Parallel(n_jobs=-1)]: Done   4 out of   4 | elapsed:  3.1min remaining:    0.0s
+[CV] clf__estimator__criterion=gini, clf__estimator__max_depth=3, clf__estimator__max_features=sqrt, clf__estimator__min_samples_split=4 
+^CTraceback (most recent call last):
+  File "models/train_classifier.py", line 154, in <module>
+    main()
+  File "models/train_classifier.py", line 136, in main
+    model.fit(X_train, Y_train)
+  File "/opt/conda/lib/python3.6/site-packages/sklearn/model_selection/_search.py", line 639, in fit
+    cv.split(X, y, groups)))
+  File "/opt/conda/lib/python3.6/site-packages/sklearn/externals/joblib/parallel.py", line 779, in __call__
+    while self.dispatch_one_batch(iterator):
+  File "/opt/conda/lib/python3.6/site-packages/sklearn/externals/joblib/parallel.py", line 625, in dispatch_one_batch
+    self._dispatch(tasks)
+  File "/opt/conda/lib/python3.6/site-packages/sklearn/externals/joblib/parallel.py", line 588, in _dispatch
+    job = self._backend.apply_async(batch, callback=cb)
+  File "/opt/conda/lib/python3.6/site-packages/sklearn/externals/joblib/_parallel_backends.py", line 111, in apply_async
+    result = ImmediateResult(func)
+  File "/opt/conda/lib/python3.6/site-packages/sklearn/externals/joblib/_parallel_backends.py", line 332, in __init__
+    self.results = batch()
+  File "/opt/conda/lib/python3.6/site-packages/sklearn/externals/joblib/parallel.py", line 131, in __call__
+    return [func(*args, **kwargs) for func, args, kwargs in self.items]
+  File "/opt/conda/lib/python3.6/site-packages/sklearn/externals/joblib/parallel.py", line 131, in <listcomp>
+    return [func(*args, **kwargs) for func, args, kwargs in self.items]
+  File "/opt/conda/lib/python3.6/site-packages/sklearn/model_selection/_validation.py", line 458, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File "/opt/conda/lib/python3.6/site-packages/sklearn/pipeline.py", line 250, in fit
+    self._final_estimator.fit(Xt, y, **fit_params)
+  File "/opt/conda/lib/python3.6/site-packages/sklearn/multioutput.py", line 170, in fit
+    for i in range(y.shape[1]))
+  File "/opt/conda/lib/python3.6/site-packages/sklearn/externals/joblib/parallel.py", line 779, in __call__
+    while self.dispatch_one_batch(iterator):
+  File "/opt/conda/lib/python3.6/site-packages/sklearn/externals/joblib/parallel.py", line 625, in dispatch_one_batch
+    self._dispatch(tasks)
+  File "/opt/conda/lib/python3.6/site-packages/sklearn/externals/joblib/parallel.py", line 588, in _dispatch
+    job = self._backend.apply_async(batch, callback=cb)
+  File "/opt/conda/lib/python3.6/site-packages/sklearn/externals/joblib/_parallel_backends.py", line 111, in apply_async
+    result = ImmediateResult(func)
+  File "/opt/conda/lib/python3.6/site-packages/sklearn/externals/joblib/_parallel_backends.py", line 332, in __init__
+    self.results = batch()
+  File "/opt/conda/lib/python3.6/site-packages/sklearn/externals/joblib/parallel.py", line 131, in __call__
+    return [func(*args, **kwargs) for func, args, kwargs in self.items]
+  File "/opt/conda/lib/python3.6/site-packages/sklearn/externals/joblib/parallel.py", line 131, in <listcomp>
+    return [func(*args, **kwargs) for func, args, kwargs in self.items]
+  File "/opt/conda/lib/python3.6/site-packages/sklearn/multioutput.py", line 39, in _fit_estimator
+    estimator.fit(X, y)
+  File "/opt/conda/lib/python3.6/site-packages/sklearn/ensemble/forest.py", line 316, in fit
+    random_state=random_state)
+  File "/opt/conda/lib/python3.6/site-packages/sklearn/ensemble/base.py", line 130, in _make_estimator
+    _set_random_states(estimator, random_state)
+  File "/opt/conda/lib/python3.6/site-packages/sklearn/ensemble/base.py", line 57, in _set_random_states
+    estimator.set_params(**to_set)
+  File "/opt/conda/lib/python3.6/site-packages/sklearn/base.py", line 265, in set_params
+    valid_params = self.get_params(deep=True)
+  File "/opt/conda/lib/python3.6/site-packages/sklearn/base.py", line 228, in get_params
+    for key in self._get_param_names():
+  File "/opt/conda/lib/python3.6/site-packages/sklearn/base.py", line 198, in _get_param_names
+    init_signature = signature(init)
+  File "/opt/conda/lib/python3.6/inspect.py", line 3033, in signature
+    return Signature.from_callable(obj, follow_wrapped=follow_wrapped)
+  File "/opt/conda/lib/python3.6/inspect.py", line 2783, in from_callable
+    follow_wrapper_chains=follow_wrapped)
+  File "/opt/conda/lib/python3.6/inspect.py", line 2258, in _signature_from_callable
+    return _signature_from_function(sigcls, obj)
+  File "/opt/conda/lib/python3.6/inspect.py", line 2136, in _signature_from_function
+    default=defaults[offset]))
+  File "/opt/conda/lib/python3.6/inspect.py", line 2465, in __init__
+    if not name.isidentifier():
+KeyboardInterrupt
+root@3712c9ea30e3:/home/workspace# python models/train_classifier.py data/DisasterResponse.db models/classifier.pkl
+[nltk_data] Downloading package punkt to /root/nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+[nltk_data] Downloading package wordnet to /root/nltk_data...
+[nltk_data]   Package wordnet is already up-to-date!
+[nltk_data] Downloading package stopwords to /root/nltk_data...
+[nltk_data]   Package stopwords is already up-to-date!
+Loading data...
+    DATABASE: data/DisasterResponse.db
+Building model...
+Training model...
+Fitting 3 folds for each of 16 candidates, totalling 48 fits
+[CV] clf__estimator__criterion=gini, clf__estimator__max_depth=3, clf__estimator__max_features=sqrt, clf__estimator__min_samples_split=3 
+[CV]  clf__estimator__criterion=gini, clf__estimator__max_depth=3, clf__estimator__max_features=sqrt, clf__estimator__min_samples_split=3, score=0.1941067086253755, total=  33.0s
+[Parallel(n_jobs=-1)]: Done   1 out of   1 | elapsed:   46.9s remaining:    0.0s
+[CV] clf__estimator__criterion=gini, clf__estimator__max_depth=3, clf__estimator__max_features=sqrt, clf__estimator__min_samples_split=3 
+[CV]  clf__estimator__criterion=gini, clf__estimator__max_depth=3, clf__estimator__max_features=sqrt, clf__estimator__min_samples_split=3, score=0.1948219138892862, total=  30.8s
+[Parallel(n_jobs=-1)]: Done   2 out of   2 | elapsed:  1.5min remaining:    0.0s
+[CV] clf__estimator__criterion=gini, clf__estimator__max_depth=3, clf__estimator__max_features=sqrt, clf__estimator__min_samples_split=3 
+[CV]  clf__estimator__criterion=gini, clf__estimator__max_depth=3, clf__estimator__max_features=sqrt, clf__estimator__min_samples_split=3, score=0.20371959942775394, total=  30.6s
+[Parallel(n_jobs=-1)]: Done   3 out of   3 | elapsed:  2.3min remaining:    0.0s
+[CV] clf__estimator__criterion=gini, clf__estimator__max_depth=3, clf__estimator__max_features=sqrt, clf__estimator__min_samples_split=4 
+[CV]  clf__estimator__criterion=gini, clf__estimator__max_depth=3, clf__estimator__max_features=sqrt, clf__estimator__min_samples_split=4, score=0.1941067086253755, total=  31.3s
+[Parallel(n_jobs=-1)]: Done   4 out of   4 | elapsed:  3.0min remaining:    0.0s
+[CV] clf__estimator__criterion=gini, clf__estimator__max_depth=3, clf__estimator__max_features=sqrt, clf__estimator__min_samples_split=4 
+[CV]  clf__estimator__criterion=gini, clf__estimator__max_depth=3, clf__estimator__max_features=sqrt, clf__estimator__min_samples_split=4, score=0.1948219138892862, total=  30.5s
+[Parallel(n_jobs=-1)]: Done   5 out of   5 | elapsed:  3.8min remaining:    0.0s
+[CV] clf__estimator__criterion=gini, clf__estimator__max_depth=3, clf__estimator__max_features=sqrt, clf__estimator__min_samples_split=4 
+[CV]  clf__estimator__criterion=gini, clf__estimator__max_depth=3, clf__estimator__max_features=sqrt, clf__estimator__min_samples_split=4, score=0.20371959942775394, total=  30.7s
+[Parallel(n_jobs=-1)]: Done   6 out of   6 | elapsed:  4.5min remaining:    0.0s
+[CV] clf__estimator__criterion=gini, clf__estimator__max_depth=3, clf__estimator__max_features=0.3, clf__estimator__min_samples_split=3 
+[CV]  clf__estimator__criterion=gini, clf__estimator__max_depth=3, clf__estimator__max_features=0.3, clf__estimator__min_samples_split=3, score=0.21470462022600487, total= 1.8min
+[Parallel(n_jobs=-1)]: Done   7 out of   7 | elapsed:  6.5min remaining:    0.0s
+[CV] clf__estimator__criterion=gini, clf__estimator__max_depth=3, clf__estimator__max_features=0.3, clf__estimator__min_samples_split=3 
+[CV]  clf__estimator__criterion=gini, clf__estimator__max_depth=3, clf__estimator__max_features=0.3, clf__estimator__min_samples_split=3, score=0.20640823916464024, total= 1.8min
+[Parallel(n_jobs=-1)]: Done   8 out of   8 | elapsed:  8.5min remaining:    0.0s
+[CV] clf__estimator__criterion=gini, clf__estimator__max_depth=3, clf__estimator__max_features=0.3, clf__estimator__min_samples_split=3 
+[CV]  clf__estimator__criterion=gini, clf__estimator__max_depth=3, clf__estimator__max_features=0.3, clf__estimator__min_samples_split=3, score=0.21359084406294707, total= 1.8min
+[Parallel(n_jobs=-1)]: Done   9 out of   9 | elapsed: 10.5min remaining:    0.0s
+[CV] clf__estimator__criterion=gini, clf__estimator__max_depth=3, clf__estimator__max_features=0.3, clf__estimator__min_samples_split=4 
+[CV]  clf__estimator__criterion=gini, clf__estimator__max_depth=3, clf__estimator__max_features=0.3, clf__estimator__min_samples_split=4, score=0.21470462022600487, total= 1.8min
+[CV] clf__estimator__criterion=gini, clf__estimator__max_depth=3, clf__estimator__max_features=0.3, clf__estimator__min_samples_split=4 
+[CV]  clf__estimator__criterion=gini, clf__estimator__max_depth=3, clf__estimator__max_features=0.3, clf__estimator__min_samples_split=4, score=0.20640823916464024, total= 1.7min
+[CV] clf__estimator__criterion=gini, clf__estimator__max_depth=3, clf__estimator__max_features=0.3, clf__estimator__min_samples_split=4 
+[CV]  clf__estimator__criterion=gini, clf__estimator__max_depth=3, clf__estimator__max_features=0.3, clf__estimator__min_samples_split=4, score=0.21359084406294707, total= 1.7min
+[CV] clf__estimator__criterion=gini, clf__estimator__max_depth=5, clf__estimator__max_features=sqrt, clf__estimator__min_samples_split=3 
+[CV]  clf__estimator__criterion=gini, clf__estimator__max_depth=5, clf__estimator__max_features=sqrt, clf__estimator__min_samples_split=3, score=0.1941067086253755, total=  33.6s
+[CV] clf__estimator__criterion=gini, clf__estimator__max_depth=5, clf__estimator__max_features=sqrt, clf__estimator__min_samples_split=3 
+[CV]  clf__estimator__criterion=gini, clf__estimator__max_depth=5, clf__estimator__max_features=sqrt, clf__estimator__min_samples_split=3, score=0.1948219138892862, total=  32.8s
+[CV] clf__estimator__criterion=gini, clf__estimator__max_depth=5, clf__estimator__max_features=sqrt, clf__estimator__min_samples_split=3 
+[CV]  clf__estimator__criterion=gini, clf__estimator__max_depth=5, clf__estimator__max_features=sqrt, clf__estimator__min_samples_split=3, score=0.20371959942775394, total=  33.9s
+[CV] clf__estimator__criterion=gini, clf__estimator__max_depth=5, clf__estimator__max_features=sqrt, clf__estimator__min_samples_split=4 
+[CV]  clf__estimator__criterion=gini, clf__estimator__max_depth=5, clf__estimator__max_features=sqrt, clf__estimator__min_samples_split=4, score=0.1941067086253755, total=  32.9s
+[CV] clf__estimator__criterion=gini, clf__estimator__max_depth=5, clf__estimator__max_features=sqrt, clf__estimator__min_samples_split=4 
+[CV]  clf__estimator__criterion=gini, clf__estimator__max_depth=5, clf__estimator__max_features=sqrt, clf__estimator__min_samples_split=4, score=0.1948219138892862, total=  33.4s
+[CV] clf__estimator__criterion=gini, clf__estimator__max_depth=5, clf__estimator__max_features=sqrt, clf__estimator__min_samples_split=4 
+[CV]  clf__estimator__criterion=gini, clf__estimator__max_depth=5, clf__estimator__max_features=sqrt, clf__estimator__min_samples_split=4, score=0.20371959942775394, total=  33.1s
+[CV] clf__estimator__criterion=gini, clf__estimator__max_depth=5, clf__estimator__max_features=0.3, clf__estimator__min_samples_split=3 
+[CV]  clf__estimator__criterion=gini, clf__estimator__max_depth=5, clf__estimator__max_features=0.3, clf__estimator__min_samples_split=3, score=0.23244171077099127, total= 2.8min
+[CV] clf__estimator__criterion=gini, clf__estimator__max_depth=5, clf__estimator__max_features=0.3, clf__estimator__min_samples_split=3 
+[CV]  clf__estimator__criterion=gini, clf__estimator__max_depth=5, clf__estimator__max_features=0.3, clf__estimator__min_samples_split=3, score=0.2265770276069232, total= 2.8min
+[CV] clf__estimator__criterion=gini, clf__estimator__max_depth=5, clf__estimator__max_features=0.3, clf__estimator__min_samples_split=3 
+[CV]  clf__estimator__criterion=gini, clf__estimator__max_depth=5, clf__estimator__max_features=0.3, clf__estimator__min_samples_split=3, score=0.2290414878397711, total= 2.8min
+[CV] clf__estimator__criterion=gini, clf__estimator__max_depth=5, clf__estimator__max_features=0.3, clf__estimator__min_samples_split=4 
+[CV]  clf__estimator__criterion=gini, clf__estimator__max_depth=5, clf__estimator__max_features=0.3, clf__estimator__min_samples_split=4, score=0.23258475182377342, total= 2.8min
+[CV] clf__estimator__criterion=gini, clf__estimator__max_depth=5, clf__estimator__max_features=0.3, clf__estimator__min_samples_split=4 
+[CV]  clf__estimator__criterion=gini, clf__estimator__max_depth=5, clf__estimator__max_features=0.3, clf__estimator__min_samples_split=4, score=0.22643398655414104, total= 2.8min
+[CV] clf__estimator__criterion=gini, clf__estimator__max_depth=5, clf__estimator__max_features=0.3, clf__estimator__min_samples_split=4 
+[CV]  clf__estimator__criterion=gini, clf__estimator__max_depth=5, clf__estimator__max_features=0.3, clf__estimator__min_samples_split=4, score=0.22861230329041488, total= 2.8min
+[CV] clf__estimator__criterion=entropy, clf__estimator__max_depth=3, clf__estimator__max_features=sqrt, clf__estimator__min_samples_split=3 
+[CV]  clf__estimator__criterion=entropy, clf__estimator__max_depth=3, clf__estimator__max_features=sqrt, clf__estimator__min_samples_split=3, score=0.1941067086253755, total=  31.7s
+[CV] clf__estimator__criterion=entropy, clf__estimator__max_depth=3, clf__estimator__max_features=sqrt, clf__estimator__min_samples_split=3 
+[CV]  clf__estimator__criterion=entropy, clf__estimator__max_depth=3, clf__estimator__max_features=sqrt, clf__estimator__min_samples_split=3, score=0.1948219138892862, total=  31.5s
+[CV] clf__estimator__criterion=entropy, clf__estimator__max_depth=3, clf__estimator__max_features=sqrt, clf__estimator__min_samples_split=3 
+[CV]  clf__estimator__criterion=entropy, clf__estimator__max_depth=3, clf__estimator__max_features=sqrt, clf__estimator__min_samples_split=3, score=0.20371959942775394, total=  31.7s
+[CV] clf__estimator__criterion=entropy, clf__estimator__max_depth=3, clf__estimator__max_features=sqrt, clf__estimator__min_samples_split=4 
+[CV]  clf__estimator__criterion=entropy, clf__estimator__max_depth=3, clf__estimator__max_features=sqrt, clf__estimator__min_samples_split=4, score=0.1941067086253755, total=  31.8s
+[CV] clf__estimator__criterion=entropy, clf__estimator__max_depth=3, clf__estimator__max_features=sqrt, clf__estimator__min_samples_split=4 
+[CV]  clf__estimator__criterion=entropy, clf__estimator__max_depth=3, clf__estimator__max_features=sqrt, clf__estimator__min_samples_split=4, score=0.1948219138892862, total=  31.2s
+[CV] clf__estimator__criterion=entropy, clf__estimator__max_depth=3, clf__estimator__max_features=sqrt, clf__estimator__min_samples_split=4 
+[CV]  clf__estimator__criterion=entropy, clf__estimator__max_depth=3, clf__estimator__max_features=sqrt, clf__estimator__min_samples_split=4, score=0.20371959942775394, total=  31.2s
+[CV] clf__estimator__criterion=entropy, clf__estimator__max_depth=3, clf__estimator__max_features=0.3, clf__estimator__min_samples_split=3 
+[CV]  clf__estimator__criterion=entropy, clf__estimator__max_depth=3, clf__estimator__max_features=0.3, clf__estimator__min_samples_split=3, score=0.21041338864254042, total= 2.5min
+[CV] clf__estimator__criterion=entropy, clf__estimator__max_depth=3, clf__estimator__max_features=0.3, clf__estimator__min_samples_split=3 
+[CV]  clf__estimator__criterion=entropy, clf__estimator__max_depth=3, clf__estimator__max_features=0.3, clf__estimator__min_samples_split=3, score=0.20583607495351167, total= 2.5min
+[CV] clf__estimator__criterion=entropy, clf__estimator__max_depth=3, clf__estimator__max_features=0.3, clf__estimator__min_samples_split=3 
+[CV]  clf__estimator__criterion=entropy, clf__estimator__max_depth=3, clf__estimator__max_features=0.3, clf__estimator__min_samples_split=3, score=0.21301859799713876, total= 2.5min
+[CV] clf__estimator__criterion=entropy, clf__estimator__max_depth=3, clf__estimator__max_features=0.3, clf__estimator__min_samples_split=4 
+[CV]  clf__estimator__criterion=entropy, clf__estimator__max_depth=3, clf__estimator__max_features=0.3, clf__estimator__min_samples_split=4, score=0.21041338864254042, total= 2.5min
+[CV] clf__estimator__criterion=entropy, clf__estimator__max_depth=3, clf__estimator__max_features=0.3, clf__estimator__min_samples_split=4 
+[CV]  clf__estimator__criterion=entropy, clf__estimator__max_depth=3, clf__estimator__max_features=0.3, clf__estimator__min_samples_split=4, score=0.20583607495351167, total= 2.5min
+[CV] clf__estimator__criterion=entropy, clf__estimator__max_depth=3, clf__estimator__max_features=0.3, clf__estimator__min_samples_split=4 
+[CV]  clf__estimator__criterion=entropy, clf__estimator__max_depth=3, clf__estimator__max_features=0.3, clf__estimator__min_samples_split=4, score=0.21316165951359084, total= 2.5min
+[CV] clf__estimator__criterion=entropy, clf__estimator__max_depth=5, clf__estimator__max_features=sqrt, clf__estimator__min_samples_split=3 
+[CV]  clf__estimator__criterion=entropy, clf__estimator__max_depth=5, clf__estimator__max_features=sqrt, clf__estimator__min_samples_split=3, score=0.1941067086253755, total=  35.1s
+[CV] clf__estimator__criterion=entropy, clf__estimator__max_depth=5, clf__estimator__max_features=sqrt, clf__estimator__min_samples_split=3 
+[CV]  clf__estimator__criterion=entropy, clf__estimator__max_depth=5, clf__estimator__max_features=sqrt, clf__estimator__min_samples_split=3, score=0.1948219138892862, total=  35.2s
+[CV] clf__estimator__criterion=entropy, clf__estimator__max_depth=5, clf__estimator__max_features=sqrt, clf__estimator__min_samples_split=3 
+[CV]  clf__estimator__criterion=entropy, clf__estimator__max_depth=5, clf__estimator__max_features=sqrt, clf__estimator__min_samples_split=3, score=0.20371959942775394, total=  35.2s
+[CV] clf__estimator__criterion=entropy, clf__estimator__max_depth=5, clf__estimator__max_features=sqrt, clf__estimator__min_samples_split=4 
+[CV]  clf__estimator__criterion=entropy, clf__estimator__max_depth=5, clf__estimator__max_features=sqrt, clf__estimator__min_samples_split=4, score=0.1941067086253755, total=  34.9s
+[CV] clf__estimator__criterion=entropy, clf__estimator__max_depth=5, clf__estimator__max_features=sqrt, clf__estimator__min_samples_split=4 
+[CV]  clf__estimator__criterion=entropy, clf__estimator__max_depth=5, clf__estimator__max_features=sqrt, clf__estimator__min_samples_split=4, score=0.1948219138892862, total=  34.8s
+[CV] clf__estimator__criterion=entropy, clf__estimator__max_depth=5, clf__estimator__max_features=sqrt, clf__estimator__min_samples_split=4 
+[CV]  clf__estimator__criterion=entropy, clf__estimator__max_depth=5, clf__estimator__max_features=sqrt, clf__estimator__min_samples_split=4, score=0.20371959942775394, total=  36.2s
+[CV] clf__estimator__criterion=entropy, clf__estimator__max_depth=5, clf__estimator__max_features=0.3, clf__estimator__min_samples_split=3 
+[CV]  clf__estimator__criterion=entropy, clf__estimator__max_depth=5, clf__estimator__max_features=0.3, clf__estimator__min_samples_split=3, score=0.21785152338721214, total= 4.0min
+[CV] clf__estimator__criterion=entropy, clf__estimator__max_depth=5, clf__estimator__max_features=0.3, clf__estimator__min_samples_split=3 
+[CV]  clf__estimator__criterion=entropy, clf__estimator__max_depth=5, clf__estimator__max_features=0.3, clf__estimator__min_samples_split=3, score=0.22271491918180517, total= 4.0min
+[CV] clf__estimator__criterion=entropy, clf__estimator__max_depth=5, clf__estimator__max_features=0.3, clf__estimator__min_samples_split=3 
+[CV]  clf__estimator__criterion=entropy, clf__estimator__max_depth=5, clf__estimator__max_features=0.3, clf__estimator__min_samples_split=3, score=0.2161659513590844, total= 4.0min
+[CV] clf__estimator__criterion=entropy, clf__estimator__max_depth=5, clf__estimator__max_features=0.3, clf__estimator__min_samples_split=4 
+[CV]  clf__estimator__criterion=entropy, clf__estimator__max_depth=5, clf__estimator__max_features=0.3, clf__estimator__min_samples_split=4, score=0.21813760549277642, total= 4.1min
+[CV] clf__estimator__criterion=entropy, clf__estimator__max_depth=5, clf__estimator__max_features=0.3, clf__estimator__min_samples_split=4 
+[CV]  clf__estimator__criterion=entropy, clf__estimator__max_depth=5, clf__estimator__max_features=0.3, clf__estimator__min_samples_split=4, score=0.22271491918180517, total= 4.1min
+[CV] clf__estimator__criterion=entropy, clf__estimator__max_depth=5, clf__estimator__max_features=0.3, clf__estimator__min_samples_split=4 
+[CV]  clf__estimator__criterion=entropy, clf__estimator__max_depth=5, clf__estimator__max_features=0.3, clf__estimator__min_samples_split=4, score=0.21645207439198855, total= 4.0min
+[Parallel(n_jobs=-1)]: Done  48 out of  48 | elapsed: 91.0min finished
+Evaluating model...
+Showing scores...
+
+Average scores for all indicators...
+Accuracy %     94.461111
+Precision %    94.054722
+Recall %       94.908056
+F-score %      93.644167
+dtype: float64
+\Detailed scores for each indicator...
+                        Accuracy %  Precision %  Recall %  F-score %
+related                      77.26        75.51     77.81      70.91
+request                      87.77        87.40     87.77      85.67
+offer                        99.59        99.59    100.00      99.79
+aid_related                  71.41        72.14     71.41      69.87
+medical_help                 92.54        90.92     92.54      90.14
+medical_products             95.78        94.99     95.78      94.74
+search_and_rescue            97.54        96.80     97.54      96.88
+security                     98.07        98.07    100.00      99.02
+military                     96.85        95.95     96.85      95.55
+child_alone                 100.00       100.00    100.00     100.00
+water                        96.20        95.84     96.20      95.83
+food                         95.53        95.52     95.53      95.53
+shelter                      94.67        94.23     94.67      94.04
+clothing                     99.00        98.91     99.00      98.94
+money                        97.57        96.96     97.57      96.50
+missing_people               98.87        98.55     98.87      98.65
+refugees                     97.40        96.96     97.40      96.71
+death                        96.31        95.87     96.31      95.71
+other_aid                    87.33        85.79     87.33      81.86
+infrastructure_related       93.51        93.51    100.00      96.64
+transport                    95.28        94.39     95.28      94.02
+buildings                    95.53        95.10     95.53      94.15
+electricity                  97.86        97.33     97.86      97.14
+tools                        99.27        99.27    100.00      99.63
+hospitals                    98.89        98.90     98.89      98.36
+shops                        99.58        99.58    100.00      99.78
+aid_centers                  98.77        98.77    100.00      99.38
+other_infrastructure         95.67        95.67    100.00      97.78
+weather_related              83.50        84.25     83.50      81.73
+floods                       94.98        94.75     94.98      94.28
+storm                        94.20        93.64     94.20      93.72
+fire                         99.16        99.02     99.16      98.89
+earthquake                   97.12        97.03     97.12      97.04
+cold                         98.15        97.87     98.15      97.63
+other_weather                95.27        93.71     95.27      93.65
+direct_report                84.17        83.18     84.17      81.03
+Saving model...
+    MODEL: models/classifier.pkl
+The model has been saved as: models/classifier.pkl
+Trained model saved!
+root@3712c9ea30e3:/home/workspace# 
